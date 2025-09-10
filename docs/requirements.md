@@ -60,9 +60,9 @@
 - **설명**: 원문보기 버튼 클릭 시 조회수 증가 후 원문으로 이동
 - **우선순위**: High
 - **상세 요구사항**:
-   - 조회수 카운트 증가 (중복 방지 로직 필요)
-   - 외부 링크로 새 탭에서 열기
-   - 조회수 업데이트는 비동기 처리
+   - 조회수 카운트 증가(DB 증분 업데이트)
+     - UPDATE posts SET view_count = view_count + 1 WHERE id = :postId 
+   - 어뷰징 방지 필요하나 최 우선 순위 아님
 
 **방문자 추적**
 - **설명**: 전체 방문 회수 추적하여 이용 현황 파악
@@ -99,6 +99,9 @@
 **게시글 (Post)**
 - ID, 제목, 요약, 내용, 썸네일, 태그, 작성일, 수정일, 조회수, 카테고리ID, 회사ID, 원문URL
 
+**게시글 일간 조회 집계(post_views_daily)**
+- (post_id, date, views)
+
 **회사 (Company)**
 - ID, 회사명, 아이콘URL, 웹사이트URL, 설명
 
@@ -106,5 +109,4 @@
 - ID, 카테고리명, 설명
 
 **방문자 로그 (VisitorLog)**
-- ID, IP주소, UserAgent, 방문일시, 페이지URL
-
+- ID, date, page_url, visits, unique_visitors
