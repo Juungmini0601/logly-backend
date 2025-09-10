@@ -1,13 +1,11 @@
-package org.logly.backend;
+package org.logly.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendApplicationTests {
+class LoglyApiApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
-
+    void contextLoads() {}
 }
