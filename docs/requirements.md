@@ -92,21 +92,6 @@
 - **Frontend**: React
 - **캐싱**: Redis
 
-### 4. 데이터 요구사항
+### 4. 프로젝트 ERD
 
-#### 5.1 주요 엔티티
-
-**게시글 (Post)**
-- ID, 제목, 요약, 내용, 썸네일, 태그, 작성일, 수정일, 조회수, 카테고리ID, 회사ID, 원문URL
-
-**게시글 일간 조회 집계(post_views_daily)**
-- (post_id, date, views)
-
-**회사 (Company)**
-- ID, 회사명, 아이콘URL, 웹사이트URL, 설명
-
-**카테고리 (Category)**
-- ID, 카테고리명, 설명
-
-**방문자 로그 (VisitorLog)**
-- ID, date, page_url, visits, unique_visitors
+![Logly ERD](images/logly-erd.png)
