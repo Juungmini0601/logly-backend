@@ -1,12 +1,1 @@
-pluginManagement {
-    plugins {
-        id 'org.springframework.boot' version "${springBootVersion}"
-        id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
-        id 'com.diffplug.spotless' version "${spotlessVersion}"
-        id 'com.palantir.java-format' version "${palantirJavaFormatVersion}"
-    }
-}
-
 rootProject.name = 'backend'
-
-include 'apps:api'

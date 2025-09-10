@@ -1,42 +1,29 @@
 plugins {
-    id 'java-library'
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
-    id 'com.diffplug.spotless'
-    id 'com.palantir.java-format'
+    id 'java'
+    id 'org.springframework.boot' version '3.5.5'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
-apply from: 'lint.gradle'
+group = 'org.logly'
+version = '0.0.1-SNAPSHOT'
+description = 'backend'
 
-// 루트 프로젝트 포함
-allprojects {
-    group = "${projectGroup}"
-    version = "${applicationVersion}"
-    sourceCompatibility = project.javaVersion
-
-    repositories {
-        mavenCentral()
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24)
     }
 }
 
-// 루트 프로젝트 제외
-subprojects {
-    apply plugin: 'java-library'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+repositories {
+    mavenCentral()
+}
 
-    dependencies {
-        // lombok
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    }
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 
-    // 기본적으로 라이브러리 형태로 설정
-    bootJar.enabled = false
-    jar.enabled = true
-
-    test {
-        useJUnitPlatform {}
-    }
+tasks.named('test') {
+    useJUnitPlatform()
 }
