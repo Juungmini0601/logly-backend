@@ -10,3 +10,4 @@ pluginManagement {
 rootProject.name = 'backend'
 
 include 'apps:api'
+include 'support:common'
