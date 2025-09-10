@@ -22,6 +22,7 @@ allprojects {
 // 루트 프로젝트 제외
 subprojects {
     apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     dependencies {
@@ -31,12 +32,11 @@ subprojects {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 
+    // 기본적으로 라이브러리 형태로 설정
+    bootJar.enabled = false
+    jar.enabled = true
+
     test {
         useJUnitPlatform {}
     }
-}
-
-// 실행 앱에만 Boot 적용
-project(':apps:api') {
-    apply plugin: 'org.springframework.boot'
 }
