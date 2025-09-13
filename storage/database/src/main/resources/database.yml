@@ -1,0 +1,72 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        highlight_sql: true
+      jakarta.persistence.query.timeout: 3000
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://${LOCAL_DATABASE_URL}/logly
+      username: ${LOCAL_DATABASE_USERNAME}
+      password: ${LOCAL_DATABASE_PASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      pool-name: LoglyConnectionPool
+      minimum-idle: 100 # 최소 커넥션
+      maximum-pool-size: 100 # 최대 커넥션
+      idle-timeout: 60000
+      connection-timeout: 3000
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/logly
+    username: jungmini
+    password: qwer1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://${PROD_DATABASE_URL}/logly
+      username: ${PROD_DATABASE_USERNAME}
+      password: ${PROD_DATABASE_PASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      pool-name: LoglyConnectionPool
+      minimum-idle: 10 # 최소 커넥션
+      maximum-pool-size: 50 # 최대 커넥션
+      idle-timeout: 60000
+      connection-timeout: 30000

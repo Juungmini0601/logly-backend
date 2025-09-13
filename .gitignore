@@ -1,3 +1,5 @@
+docker/data
+*.env
 .claude/
 CLAUDE.md
 
