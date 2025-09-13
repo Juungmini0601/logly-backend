@@ -12,6 +12,8 @@ COPY lint.gradle .
 
 # 소스코드 복사
 COPY apps apps
+COPY domain domain/
+COPY sotrage storage/
 COPY support support/
 
 # 어플리케이션 빌드

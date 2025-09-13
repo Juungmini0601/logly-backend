@@ -39,7 +39,7 @@ public class CompanyBatchConfig {
 
     @Bean
     public Step companyStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
-        return new StepBuilder("InitCompnayStep", jobRepository)
+        return new StepBuilder("InitCompanyStep", jobRepository)
                 .<CompanyInitBatchRecord, Company>chunk(20, transactionManager)
                 .reader(companyItemReader())
                 .processor(companyItemProcessor())
