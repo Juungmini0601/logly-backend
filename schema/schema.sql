@@ -1,0 +1,8 @@
+CREATE TABLE companies (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL UNIQUE,
+    icon_url VARCHAR(1000),
+    blog_url VARCHAR(1000),
+    created_at DATETIME DEFAULT NOW(),
+    updated_at DATETIME DEFAULT NOW()
+);

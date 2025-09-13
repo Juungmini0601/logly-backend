@@ -10,4 +10,10 @@ pluginManagement {
 rootProject.name = 'backend'
 
 include 'apps:api'
+include 'apps:batch'
+include 'domain'
+
 include 'support:common'
+include 'support:logging'
+
+include 'storage:database'
