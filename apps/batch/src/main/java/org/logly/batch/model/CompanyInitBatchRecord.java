@@ -1,8 +1,10 @@
-package org.logly.domain.company;
+package org.logly.batch.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import org.logly.domain.company.Company;
 
 @Getter
 @Setter
