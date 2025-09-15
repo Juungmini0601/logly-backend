@@ -1,4 +1,4 @@
-package org.logly.infrastructure.database.repository.compnay;
+package org.logly.infrastructure.database.repository.company;
 
 import java.util.Optional;
 

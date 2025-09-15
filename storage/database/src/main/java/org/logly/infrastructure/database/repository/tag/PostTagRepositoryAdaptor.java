@@ -4,10 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
 
-import org.logly.domain.post.PostId;
 import org.logly.domain.tag.PostTag;
 import org.logly.domain.tag.PostTagRepository;
-import org.logly.domain.tag.TagId;
 import org.logly.infrastructure.database.entity.tag.PostTagEntity;
 
 @Repository
