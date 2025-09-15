@@ -1,4 +1,4 @@
-package org.logly.infrastructure.database.entity;
+package org.logly.infrastructure.database.entity.compnay;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +11,10 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import org.logly.domain.company.Company;
+import org.logly.domain.company.CompanyId;
+import org.logly.infrastructure.database.entity.BaseEntity;
 
 @Entity
 @Table(name = "companies")
@@ -36,5 +40,16 @@ public class CompanyEntity extends BaseEntity {
         this.name = name;
         this.iconUrl = iconUrl;
         this.blogUrl = blogUrl;
+    }
+
+    public Company toDomain() {
+        return Company.builder()
+                .id(CompanyId.of(getId()))
+                .name(getName())
+                .iconUrl(getIconUrl())
+                .blogUrl(getBlogUrl())
+                .createdAt(getCreatedAt())
+                .updatedAt(getUpdatedAt())
+                .build();
     }
 }

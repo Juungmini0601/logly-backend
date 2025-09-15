@@ -19,8 +19,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import org.logly.batch.model.CompanyInitBatchRecord;
 import org.logly.domain.company.Company;
-import org.logly.domain.company.CompanyInitBatchRecord;
 import org.logly.domain.company.CompanyRepository;
 
 @Slf4j

@@ -1,13 +1,14 @@
-package org.logly.infrastructure.database.repository;
+package org.logly.infrastructure.database.repository.company;
+
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
 
 import org.logly.domain.company.Company;
-import org.logly.domain.company.CompanyId;
 import org.logly.domain.company.CompanyRepository;
-import org.logly.infrastructure.database.entity.CompanyEntity;
+import org.logly.infrastructure.database.entity.compnay.CompanyEntity;
 
 @Repository
 @RequiredArgsConstructor
@@ -23,13 +24,11 @@ public class CompanyRepositoryAdaptor implements CompanyRepository {
                 .blogUrl(company.getBlogUrl())
                 .build();
 
-        CompanyEntity savedEntity = entityRepository.save(entity);
+        return entityRepository.save(entity).toDomain();
+    }
 
-        return Company.builder()
-                .id(CompanyId.of(savedEntity.getId()))
-                .name(savedEntity.getName())
-                .iconUrl(savedEntity.getIconUrl())
-                .blogUrl(savedEntity.getBlogUrl())
-                .build();
+    @Override
+    public Optional<Company> findByName(String name) {
+        return entityRepository.findByName(name).map(CompanyEntity::toDomain);
     }
 }

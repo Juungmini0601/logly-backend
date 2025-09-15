@@ -3,6 +3,8 @@ dependencies {
     implementation project(':storage:database')
     implementation project(':support:logging')
 
+    // playwright
+    implementation "com.microsoft.playwright:playwright:${playwrightVersion}"
     // Spring Batch
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     // Database
