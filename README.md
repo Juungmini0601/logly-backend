@@ -1,1 +1,1 @@
-Jenkins test용 변경ㅇt
+GitParamter Test
