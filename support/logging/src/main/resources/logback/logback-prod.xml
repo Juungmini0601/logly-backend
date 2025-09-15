@@ -11,7 +11,7 @@
 
     <appender name="SENTRY" class="io.sentry.logback.SentryAppender">
         <options>
-            <dsn>https://95da529fce45179f1c908bb2e030035b@o4509648247848960.ingest.us.sentry.io/4509671680114688</dsn>
+            <dsn>{YOUR_DSN}</dsn>
         </options>
         <minimumEventLevel>WARN</minimumEventLevel>
         <minimumBreadcrumbLevel>INFO</minimumBreadcrumbLevel>
