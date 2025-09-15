@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LoglyApiApplication {
 
     public static void main(String[] args) {
-            SpringApplication.run(LoglyApiApplication.class, args);
+        SpringApplication.run(LoglyApiApplication.class, args);
     }
 }
